@@ -1,5 +1,5 @@
 import sqlite3
-import csv  # <--- NOWY IMPORT
+import csv  
 import os
 from datetime import datetime
 
@@ -22,7 +22,7 @@ class DBManager:
                 output_unit TEXT
             )
         """)
-        # Tabela walut (długoterminowa - tej nie czyścimy!)
+        # Tabela walut (długoterminowa - tej nie czyścimy)
         self.cursor.execute("""
             CREATE TABLE IF NOT EXISTS currency_rates (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -84,4 +84,5 @@ class DBManager:
         return self.cursor.fetchall()
 
     def close(self):
+
         self.conn.close()
