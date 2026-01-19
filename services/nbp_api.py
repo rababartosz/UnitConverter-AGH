@@ -42,9 +42,6 @@ class NBPClient:
             return []
 
     def get_current_rates(self):
-        # ... (TUTAJ ZOSTAW STARY KOD get_current_rates BEZ ZMIAN) ...
-        # (Wklej tu zawartość poprzedniej funkcji get_current_rates, tej która pobiera też złoto)
-        # Dla porządku wklejam skrót, ale użyj swojej pełnej wersji:
         url_curr = "http://api.nbp.pl/api/exchangerates/tables/a/?format=json"
         url_gold = "http://api.nbp.pl/api/cenyzlota/?format=json"
         rates_dict = {}
@@ -59,4 +56,5 @@ class NBPClient:
             rates_dict['zloto_1g'] = g[0]['cena']
         except:
             pass
+
         return rates_dict
