@@ -32,7 +32,7 @@ class CurrencyGraph(ctk.CTkFrame):
             self.ax.plot(dates_api, values_api, color='#1f77b4', label='Rynek (2 tyg)', linewidth=2)
 
         # --- WARSTWA 2: DANE Z BAZY (Czerwone Kropki) ---
-        # To pokazuje, kiedy Ty otwierałeś aplikację
+        # To pokazuje, kiedy aplikacja została otworzona
         db_data = self.db.get_currency_history(self.currency_code)
         if db_data:
             dates_db = [datetime.strptime(row[0], "%Y-%m-%d") for row in db_data]
@@ -45,4 +45,5 @@ class CurrencyGraph(ctk.CTkFrame):
         self.ax.grid(True, linestyle='--', alpha=0.7)
         self.ax.xaxis.set_major_formatter(mdates.DateFormatter('%m-%d'))  # Tylko miesiąc-dzień
         self.fig.autofmt_xdate(rotation=45)
+
         self.ax.legend()  # Pokaż legendę (co jest niebieskie, co czerwone)
