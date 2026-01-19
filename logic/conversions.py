@@ -107,7 +107,7 @@ class CurrencyConverter(UnitConverter):
             'CHF': 4.5,
             # Dodatki krypto/kruszce (NBP tego nie ma w tabeli A)
             'BTC': 170000.0,
-            'zloto_1g': 260.0
+            'zloto_1g': 520.0
         }
 
     def update_rates(self, new_rates):
@@ -119,7 +119,6 @@ class CurrencyConverter(UnitConverter):
             for currency, rate in new_rates.items():
                 # Aktualizujemy tylko te waluty, które przyszły z NBP
                 self.factors[currency] = rate
-                # Opcjonalnie: print(f"Zaktualizowano {currency}: {rate}")
 
 
 class ForceConverter(UnitConverter):
@@ -131,10 +130,11 @@ class ForceConverter(UnitConverter):
             'kN': 1000.0,  # Kiloniuton
             'mN': 0.001,  # Miliniuton
             'gramsila': 0.00980665,  # Gram-siła (gf)
-            'kgsila': 9.80665,  # Kilogram-siła (kgf) - bardzo popularne!
+            'kgsila': 9.80665,  # Kilogram-siła (kgf)
             'dyna': 0.00001,  # Dyna (dyn)
             'tonasila_ang': 9964.02,  # Tona-siła angielska (Long Ton-force)
             'tonasila_metr': 9806.65,  # Tona-siła metryczna
             'poundal': 0.138255,  # Poundal (pdl)
             'lbf': 4.44822  # Funt-siła (pound-force) - standard w USA/UK
+
         }
